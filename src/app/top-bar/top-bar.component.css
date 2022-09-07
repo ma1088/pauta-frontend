@@ -1,0 +1,12 @@
+h1 {
+    background-color: white;
+}
+
+img {
+    max-height: 2.5em;
+    background-color: white;
+}
+.force-right-align {
+    float: left;
+    margin-right: 1%;
+}

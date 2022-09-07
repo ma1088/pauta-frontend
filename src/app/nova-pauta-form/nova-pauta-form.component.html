@@ -1,0 +1,20 @@
+<a [routerLink]="['/']">
+
+</a>
+<span class="github-star-badge">Pauta / Nova Pauta</span>
+<div>
+    <form action="{{ url }}/criar">
+        <input type="text" placeholder="Autor" name="autor" id="autor"/>
+        <span class="right">
+            <input type="datetime-local" name="dtCriacao" disabled="true" value="{{ agora | date:'yyyy-MM-ddTHH:mm:ss' }}" />
+            <input type="submit" value="Salvar"/>
+        </span>
+        <br/>
+        <p>
+            <input class="titulo full-width" type="text" placeholder="Título" name="titulo"/>
+        </p>
+        <p>
+            <textarea class="full-width" placeholder="Texto da pauta" name="texto" rows="10" ></textarea>
+        </p>
+    </form>
+</div>

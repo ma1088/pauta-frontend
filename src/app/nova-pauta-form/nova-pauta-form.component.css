@@ -1,0 +1,21 @@
+div {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+input, textarea {
+    margin: 3px;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.full-width {
+    width: 98.75%;
+}
+
+.right {
+    float: right;
+}
