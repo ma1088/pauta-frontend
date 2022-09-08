@@ -1,0 +1,9 @@
+<div>
+    <ul class="respostas">
+        <li *ngFor="let resposta of respostas">
+            <button [class.selected]="resposta == selectedResposta" type="button" (click)="onSelect(resposta)">
+                <span class="resposta-face">{{ resposta.texto }}</span>
+            </button>
+        </li>
+    </ul>
+</div>
