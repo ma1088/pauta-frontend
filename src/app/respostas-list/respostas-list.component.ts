@@ -14,6 +14,10 @@ export class RespostasListComponent{
 
     selectedResposta?: respostaDto;
 
+    public getRespostas(): respostaDto[]{
+        return this.respostas;
+    }
+
     onSelect(resposta: respostaDto){
         this.selectedResposta = resposta;
         console.log(this.selectedResposta.texto);

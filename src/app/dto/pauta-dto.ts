@@ -3,6 +3,6 @@ export interface pautaDto{
     autor: string;
     titulo: string;
     texto: string;
-    qtdRespostas: string;
-    dtCriacao: string
+    qtdRespostas: number;
+    dtCriacao: string;
 }
