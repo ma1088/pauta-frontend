@@ -9,6 +9,8 @@
   html {
     background-image: url('./assets/assuntos-aleatorios-background.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   h1,
@@ -39,6 +41,15 @@
     background-color: #1976d2;
     color: white;
     font-weight: 600;
+  }
+
+  .inner-toolbar {
+      border-radius: 3px;
+      border-style: solid;
+      border-width: 1px;
+      display: inline-flex;
+      align-items: center;
+      background-color: #faf0ff;
   }
 
   .toolbar img {
@@ -92,12 +103,11 @@
   .card {
     all: unset;
     border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
+    border: 1px;
     height: 40px;
     width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
+    margin: 0 8px 8px;
+    padding: 8px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -120,8 +130,8 @@
   }
 
   .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
   }
 
   .card-container .card:not(.highlight-card):hover .material-icons path {
