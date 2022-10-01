@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { pautaPaiDto } from '../dto/pauta-pai-dto';
-import { pautaDto } from '../dto/pauta-dto';
-import { respostaDto } from '../dto/resposta-dto';
+import { PautaPaiDto } from '../dto/PautaPaiDto';
+import { PautaDto } from '../dto/PautaDto';
+import { RespostaDto } from '../dto/RespostaDto';
 import { HttpClient } from '@angular/common/http';
 import { formatDate } from '@angular/common';
 
@@ -20,8 +20,8 @@ export class NovaPautaFormComponent{
 
     }
 
-    onClick(asRespostas: respostaDto[]){
-        let aPauta: pautaDto = {
+    onClick(asRespostas: RespostaDto[]){
+        let aPauta: PautaDto = {
             idPauta: 0,
             autor: (<HTMLInputElement>document.getElementById("autor")).value,
             dtCriacao: formatDate(this.agora,'yyyy-MM-ddTHH:mm:ssZ','en-US'),
@@ -30,12 +30,12 @@ export class NovaPautaFormComponent{
             titulo: (<HTMLInputElement>document.getElementById("titulo")).value
         };
 
-        let aPautaPai: pautaPaiDto = {
+        let aPautaPai: PautaPaiDto = {
             pauta: aPauta,
             respostas: asRespostas
         };
 
-        this.http.post<pautaPaiDto>(this.url + "/criar", aPautaPai).subscribe(data => this.mensagem = "pauta criada: " + data.pauta.idPauta);
+        this.http.post<PautaPaiDto>(this.url + "/criar", aPautaPai).subscribe(data => this.mensagem = "pauta criada: " + data.pauta.idPauta);
     }
     
 }

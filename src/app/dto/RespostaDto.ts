@@ -1,4 +1,4 @@
-export interface respostaDto{
+export interface RespostaDto{
     idResposta: number;
     idPergunta: number;
     texto: string

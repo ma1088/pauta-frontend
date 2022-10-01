@@ -1,0 +1,18 @@
+<!-- Use any element to open the sidenav -->
+<div>
+  <a href="javascript:void(0)" class="openbtn" (click)="openNav()">&equiv;</a>
+</div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <ul>
+    <li *ngFor="let item of items">
+      <button (click)="show(item)">{{item.value}}</button>
+    </li>
+  </ul>
+</div>
+
+<div id="main" class="a-div">
+  <nova-pauta-form *ngIf="selectedItem=='nova-pauta-form'"></nova-pauta-form>
+  <consulta-pautas-list *ngIf="selectedItem=='consulta-pautas-list'"></consulta-pautas-list>
+</div>

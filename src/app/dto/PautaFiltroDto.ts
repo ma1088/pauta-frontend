@@ -1,8 +1,8 @@
-export interface pautaDto{
-    idPauta: number;
+export interface PautaFiltroDto{
     autor: string;
     titulo: string;
     texto: string;
     qtdRespostas: number;
-    dtCriacao: string;
+    dtCriacaoDe: string;
+    dtCriacaoAte: string;
 }

@@ -3,10 +3,6 @@ div {
     margin-right: 10%;
 }
 
-input, textarea {
-    margin: 3px;
-}
-
 .titulo {
     font-weight: bold;
     font-size: larger;

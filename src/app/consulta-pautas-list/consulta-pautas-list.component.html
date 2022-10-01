@@ -1,0 +1,54 @@
+<ul class="breadcrumb">
+    <li><a href="#">Pauta</a></li>
+    <li><a href="#">Ver Pautas</a></li>   
+</ul>
+<span>
+    <a href="javascript:void(0)" class="openbtn" (click)="showSearch()">&#1F50D;</a>
+</span>
+<div>
+    <a href="javascript:void(0)" class="closebtn" (click)="hideSearch()">&times;</a><br/>
+    <a href="javascript:void(0)" class="closebtn" (click)="doSearch()">&#1F50D;</a><br/>
+    <form method="get" action="#">
+        <p>
+            <label for="dtCriacaoDe">De: </label><input type="datetime-local" name="dtCriacaoDe" id="dtCriacaoDe"/>
+            <label for="dtCriacaoAte">Até: </label><input type="datetime-local" name="dtCriacaoAte" id="dtCriacaoAte" />
+        </p>
+        <p>
+            <label for="autor">Até: </label><input type="text" name="autor" id="autor" placeholder="Nome do autor contém"/>
+            <label for="titulo">Até: </label><input type="text" name="titulo" id="titulo" placeholder="Título contém"/>
+            <label for="texto">Até: </label><textarea placeholder="Texto contém" name="texto" id="texto" rows="10" ></textarea>
+        </p>
+    </form>
+</div>
+<div>
+    <table mat-table [dataSource]="asPautas">
+        <caption>
+            Pautas encontradas
+        </caption> 
+        <ng-container matColumnDef="autor">
+            <th mat-header-cell *matHeaderCellDef>Autor</th>
+            <td mat-cell *matCellDef="let element">{{element.autor}}</td>
+        </ng-container>
+        <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef>Data</th>
+            <td mat-cell *matCellDef="let element">{{element.dtCriacao}}</td>
+        </ng-container>
+        <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef>Título</th>
+            <td mat-cell *matCellDef="let element">{{element.titulo}}</td>
+        </ng-container>
+        <ng-container matColumnDef="texto">
+            <th mat-header-cell *matHeaderCellDef>Texto</th>
+            <td mat-cell *matCellDef="let element">{{element.texto}}</td>
+        </ng-container>
+        <ng-container matColumnDef="respostas">
+            <th mat-header-cell *matHeaderCellDef>Respostas</th>
+            <td mat-cell *matCellDef="let element">
+                {{element.qtRespostas}}
+                <ul>
+                    <li *ngfor="let resposta in element.respostas">{{resposta}}</li>
+                </ul>
+            </td>
+        </ng-container>
+    </table>
+</div>

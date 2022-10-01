@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { respostaDto } from '../dto/resposta-dto';
+import { RespostaDto } from '../../dto/RespostaDto';
 
 @Component({
     selector: 'respostas-list',
@@ -7,16 +7,16 @@ import { respostaDto } from '../dto/resposta-dto';
     styleUrls: ['./respostas-list.component.css']
 })
 export class RespostasListComponent{
-    defaultResposta: respostaDto = {idResposta: -1, idPergunta: -1, texto: 'null'};
+    defaultResposta: RespostaDto = {idResposta: -1, idPergunta: -1, texto: 'null'};
 
-    respostas: respostaDto[] = [
+    respostas: RespostaDto[] = [
         {idResposta: 0, idPergunta: 0, texto: "sim"},
         {idResposta: 0, idPergunta: 0, texto: "não"}
     ];
 
-    selectedResposta?: respostaDto;
+    selectedResposta?: RespostaDto;
 
-    public getRespostas(): respostaDto[]{
+    public getRespostas(): RespostaDto[]{
         return this.respostas;
     }
 
@@ -26,7 +26,7 @@ export class RespostasListComponent{
     }
 
     addResposta(){
-        let novaResposta: respostaDto = {idResposta: 0, idPergunta: 0, texto: 'Texto resposta'};
+        let novaResposta: RespostaDto = {idResposta: 0, idPergunta: 0, texto: 'Texto resposta'};
         this.respostas.push(novaResposta);
         this.selectedResposta = novaResposta;
         this.editResposta();
@@ -48,12 +48,12 @@ export class RespostasListComponent{
         }
     }
 
-    onSelect(resposta: respostaDto){
+    onSelect(resposta: RespostaDto){
         this.selectedResposta = resposta;
         this.editResposta();
     }
 
-    public getRespostaAt(index :number) :respostaDto {
+    public getRespostaAt(index :number) :RespostaDto {
         let maximo = this.respostas.length-1;
         if (index > maximo) return this.respostas[maximo];
         if (index < 0) return this.respostas[0];

@@ -3,10 +3,10 @@ h1 {
 }
 
 img {
-    max-height: 2.5em;
+    max-height: 1.5em;
     background-color: white;
 }
-.force-right-align {
+.force-left-align {
     float: left;
     margin-right: 1%;
 }
