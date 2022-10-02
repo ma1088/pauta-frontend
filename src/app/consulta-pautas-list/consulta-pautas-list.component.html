@@ -19,6 +19,7 @@
         </p>
     </div>
 </div>
+<app-msg id="msg" [mensagem]="mensagem"></app-msg>
 <div class="main" id="listPanel">
     <table>
         <caption>
@@ -29,14 +30,15 @@
             <th>Data Criação</th>
             <th>Conteúdo</th>
         </tr>
-        <tr *ngFor="let item in asPautas">
-            
+        <tr *ngFor="let item of asPautas">
+            <td>{{item.pauta.autor}}</td>
+            <td>{{item.pauta.dtCriacao}}</td>
             <td>
-                <h4>{{item.titulo}}</h4>
-                <p>{{item.texto}}</p>
-                <p>Escolher até: {{item.qtRespostas}}</p>
+                <h4>{{item.pauta.titulo}}</h4>
+                <p>{{item.pauta.texto}}</p>
+                <p>Escolher até: {{item.pauta.qtdRespostas}}</p>
                 <ul>
-                    <li *ngfor="let resposta in element.respostas">{{resposta}}</li>
+                    <li *ngfor="let resposta in item.respostas">{{resposta}}</li>
                 </ul>
             </td>
         </tr>

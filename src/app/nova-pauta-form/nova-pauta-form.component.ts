@@ -23,16 +23,13 @@ export class NovaPautaFormComponent implements AfterViewInit{
     }
 
     ngAfterViewInit(): void {
-        console.log('mensagem vai mudar');
         this.mensagem = this.msg.mensagem;
     }
 
     onClick(asRespostas: RespostaDto[]){
-        console.log('salvar');
         let aPautaPai: PautaPaiDto = this.getPauta(asRespostas);
 
-        let mensagem: string = '';
-        this.http.post<PautaPaiDto>(this.url + "/criar", aPautaPai).subscribe(data => {
+        this.http.post<PautaPaiDto>(this.url + "/pauta/criar", aPautaPai).subscribe(data => {
             this.mensagem = "pauta criada: " + data.pauta.idPauta + ": " + data.pauta.titulo;
         });
 
