@@ -8,19 +8,21 @@ import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
 export class AppMsg implements OnChanges{
     isHidden: boolean = false;
 
-    @Input() mensagem: string = '';
+    @Input() mensagem = '';
+
     ngOnChanges(changes: SimpleChanges): void {
-        console.log("de: " + this.mensagem + " para: " + changes);
+        console.log('ngOnChanges');
         this.show();
     }
 
     hide(){
+        console.log('hide');
         this.mensagem = '';
     }
-    
+
     show(){
-        console.log("a janela está " + this.isHidden.valueOf);
+        console.log("a janela está " + this.isHidden.valueOf());
         this.isHidden = !this.isHidden;
-        console.log("a janela ficou " + this.isHidden.valueOf);
+        console.log("a janela ficou " + this.isHidden.valueOf());
     }
 }

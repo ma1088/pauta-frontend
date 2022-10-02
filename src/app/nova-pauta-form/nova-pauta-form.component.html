@@ -2,8 +2,8 @@
     <li><a href="#">Pauta</a></li>
     <li><a href="#">Nova Pauta</a></li>   
 </ul>
+<app-msg id="msg" [mensagem]="mensagem"></app-msg>
 <div>
-    <app-msg id="msg"></app-msg>
     <input type="text" placeholder="Autor" name="autor" id="autor"/>
     <span class="right">
         <input type="datetime-local" name="dtCriacao" id="dtCriacao" disabled="true" value="{{ agora | date:'yyyy-MM-ddTHH:mm:ss' }}" />

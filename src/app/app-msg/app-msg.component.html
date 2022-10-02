@@ -1,5 +1,5 @@
-<div class="mensagem" id="msg" hidden="{{isHidden}}">{{mensagem}} 
+<div class="mensagem" id="msg">{{mensagem}} 
     <span class="right">
-        <a class="closebtn" (click)="hide()">&times;</a>
+        <a class="closebtn" (click)="hide()" *ngIf="mensagem != ''">&times;</a>
     </span>
 </div>

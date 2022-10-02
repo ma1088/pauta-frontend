@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { PautaPaiDto } from '../dto/PautaPaiDto';
 import { PautaDto } from '../dto/PautaDto';
@@ -12,16 +12,23 @@ import { AppMsg } from '../app-msg/app-msg.component';
     templateUrl: './nova-pauta-form.component.html',
     styleUrls: ['./nova-pauta-form.component.css']
 })
-export class NovaPautaFormComponent{
+export class NovaPautaFormComponent implements AfterViewInit{
     url = environment.apiUrl;
     agora :number = Date.now();
-    mensagem: string = '';
+    mensagem = '';
 
+    @ViewChild(AppMsg) msg: AppMsg;
     constructor(private http: HttpClient){
+        this.msg = <AppMsg><unknown>document.getElementById("msg");
+    }
 
+    ngAfterViewInit(): void {
+        console.log('mensagem vai mudar');
+        this.mensagem = this.msg.mensagem;
     }
 
     onClick(asRespostas: RespostaDto[]){
+        console.log('salvar');
         let aPautaPai: PautaPaiDto = this.getPauta(asRespostas);
 
         let mensagem: string = '';
@@ -48,5 +55,6 @@ export class NovaPautaFormComponent{
 
         return aPautaPai;
     }
+    
     
 }
