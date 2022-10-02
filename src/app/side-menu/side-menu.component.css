@@ -15,12 +15,13 @@
   
   /* The navigation menu links */
   .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 8px 16px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: #818181;
     display: block;
     transition: 0.3s;
+    cursor: pointer;
   }
   
   /* When you mouse over the navigation links, change their color */
@@ -36,6 +37,18 @@
     font-size: 36px;
     margin-left: 50px;
   }
+  
+.openbtn {
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  font-size: 36px;
+  margin-left: 17px;
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
   
   a:hover {
     color: #c2727e;

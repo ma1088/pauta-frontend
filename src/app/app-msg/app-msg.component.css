@@ -1,0 +1,10 @@
+  .mensagem {
+    background-color: coral;
+    color: black;
+  }
+
+  .mensagem .closebtn {
+    color: brown;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px black;
+  }

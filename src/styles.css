@@ -14,25 +14,14 @@
     margin-left: 2.5%;
     margin-right: 2.5%;
     border-radius: 5%;
-    border-color: #ffd2d2;
+    border-color: #ca8181;
     border-width: 2px;
-}
-
-.openbtn {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  font-size: 36px;
-  margin-left: 17px;
-  text-decoration: none;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
+    min-height: 90%;
 }
 
 /* Style the list */
 ul.aa-breadcrumb {
-    padding: 10px 16px;
+    padding: 4px 10px;
     list-style: none;
     background-color: #eee;
   }
@@ -40,7 +29,7 @@ ul.aa-breadcrumb {
   /* Display list items side by side */
 ul.aa-breadcrumb li {
     display: inline;
-    font-size: 18px;
+    font-size: 12px;
   }
   
   /* Add a slash symbol (/) before/behind each list item */
@@ -64,4 +53,12 @@ ul.aa-breadcrumb li a:hover {
 
 input, textarea {
     margin: 3px;
+}
+
+.right {
+  float: right;
+}
+
+a {
+  cursor: pointer;
 }

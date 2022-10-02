@@ -7,7 +7,7 @@
   <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
   <ul>
     <li *ngFor="let item of items">
-      <button (click)="show(item)">{{item.value}}</button>
+      <a (click)="show(item)">{{item.value}}</a>
     </li>
   </ul>
 </div>

@@ -1,8 +1,32 @@
-  /* Position and style the close button (top right corner) */
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
+.card-container {
+    background-color: #FFFFFF88;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    
+}
+.card-container .card {
+    font-size:30px;
+    color:gray;
+    text-shadow:1px 1px 1px black;
+    margin: 10px;
+}
+
+h3 {
+    margin-bottom: 1em;
+}
+
+p {
+    margin-left: 1%;
+    margin-top: 1em;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    box-shadow: 1px 1px 1px gainsboro;
+}

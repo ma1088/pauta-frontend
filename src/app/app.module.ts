@@ -10,6 +10,7 @@ import { SideMenuComponent} from './side-menu/side-menu.component';
 import { NovaPautaFormComponent } from './nova-pauta-form/nova-pauta-form.component';
 import { RespostasListComponent } from './nova-pauta-form/respostas-list/respostas-list.component';
 import { ConsultaPautaList } from './consulta-pautas-list/consulta-pautas-list.component';
+import { AppMsg } from './app-msg/app-msg.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ConsultaPautaList } from './consulta-pautas-list/consulta-pautas-list.c
     AppComponent,
     TopBarComponent,
     SideMenuComponent,
+    AppMsg,
     NovaPautaFormComponent,
     RespostasListComponent,
     ConsultaPautaList

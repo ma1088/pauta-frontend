@@ -1,27 +1,27 @@
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 <div class="respostas">
     <h3>Respostas</h3>
-    <span class="card-container">
-        <button class="card"
-                (click)="addResposta()">
-            <i class="material-icons"
-               alt-text="Incluir resposta">add_circle</i>
-        </button>
-        <button class="card"
-                (click)="removeResposta()">
-            <i class="material-icons"
-               alt-text="Excluir resposta">cancel</i>
-        </button>
-        <p>Selecione a resposta para editar o texto</p>
-    </span>
-    <ul class="respostas">
-        <li *ngFor="let resposta of respostas">
-            <button [class.selected]="resposta == selectedResposta"
-                    type="button" 
-                    (click)="onSelect(resposta)">
-                <span class="resposta-face">{{ resposta.texto }}</span>
-            </button>
-        </li>
-    </ul>
+    <div class="card-container">
+        <p>
+            <a class="card"
+                    (click)="addResposta()">
+                <i class="fa fa-plus-circle"
+                alt-text="Incluir resposta"></i>
+            </a>
+            <a class="card"
+                    (click)="removeResposta()">
+                <i class="fa fa-minus-circle"
+                alt-text="Excluir resposta"></i>
+            </a>
+            Selecione a resposta para editar o texto
+        </p>
+    
+        <ul class="respostas">
+            <li *ngFor="let resposta of respostas">
+                <button [class.selected]="resposta == selectedResposta"
+                        (click)="onSelect(resposta)">
+                    <span class="resposta-face">{{ resposta.texto }}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
 </div>
