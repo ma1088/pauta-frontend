@@ -25,9 +25,6 @@ export class ConsultaPautaList implements AfterViewInit{
     SHOWN: string = '5em';
     url = environment.apiUrl;
 
-    de: Date = new Date();
-    ate: Date = new Date();
-
     mensagem = '';
     asPautas: PautaPaiDto[] = [];
     
@@ -44,14 +41,18 @@ export class ConsultaPautaList implements AfterViewInit{
     }
     
     doSearch(){
+        let tz:string = formatTz();
+        console.log(tz);
+        let de = (<HTMLInputElement>document.getElementById('dtCriacaoDe')).value;
+        let ate = (<HTMLInputElement>document.getElementById('dtCriacaoAte')).value;
         let headers = new HttpHeaders();
         headers.append('Access-Control-Allow-Origin', '*');
         
         this.http.post<PautaPaiDto[]>(this.url + "/pauta/listar", 
             {
                 autorLike: (<HTMLInputElement>document.getElementById("autor")).value,
-                criadoApos: formatDate(this.de,'yyyy-MM-ddTHH:mm:ssZ','en-US'),
-                criadoAntesDe: formatDate(this.ate,'yyyy-MM-ddTHH:mm:ssZ','en-US'),
+                criadoApos: ((de != '') ? de + ':00.000' + tz : null),
+                criadoAntesDe: ((ate != '') ? ate + ':59.999' + tz : null),
                 textoLike: (<HTMLInputElement>document.getElementById("texto")).value,
                 tituloLike: (<HTMLInputElement>document.getElementById("titulo")).value
             }
@@ -62,4 +63,18 @@ export class ConsultaPautaList implements AfterViewInit{
             this.mensagem = 'Nenhuma pauta encontrada...';
         }
     }
+}
+
+function formatTz() {
+    let tz = (-1 * new Date().getTimezoneOffset() / 60).valueOf();
+    let signal: string = '';
+    if (tz == 0){
+        return 'Z[UTC]';
+    } else if (tz > 0){
+        signal = '+';
+    } else {
+        signal = '-';
+    }
+
+    return signal + Math.abs(tz).toString().padStart(2,'0') + ':00';
 }

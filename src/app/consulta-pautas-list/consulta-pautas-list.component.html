@@ -9,8 +9,8 @@
     <div class="panel" id="searchPanel">
         <a class="right closebtn" (click)="doSearch()"><i class="fa fa-check"></i></a>
         <p>
-            <label for="dtCriacaoDe">De: </label><input type="datetime-local" name="dtCriacaoDe" id="dtCriacaoDe" value="{{ de | date:'yyyy-MM-ddTHH:mm:ss' }}"/>
-            <label for="dtCriacaoAte">Até: </label><input type="datetime-local" name="dtCriacaoAte" id="dtCriacaoAte" value="{{ ate | date:'yyyy-MM-ddTHH:mm:ss' }}"/>
+            <label for="dtCriacaoDe">De: </label><input type="datetime-local" name="dtCriacaoDe" id="dtCriacaoDe" />
+            <label for="dtCriacaoAte">Até: </label><input type="datetime-local" name="dtCriacaoAte" id="dtCriacaoAte" />
         </p>
         <p>
             <input type="text" name="autor" id="autor" placeholder="Nome do autor contém"/>
@@ -20,7 +20,7 @@
     </div>
 </div>
 <app-msg id="msg" [mensagem]="mensagem"></app-msg>
-<div class="main" id="listPanel">
+<div id="listPanel">
     <table>
         <caption>
             Pautas

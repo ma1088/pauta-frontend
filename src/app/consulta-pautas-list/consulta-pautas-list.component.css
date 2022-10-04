@@ -15,8 +15,8 @@
   /* Position and style the close button (top right corner) */
   .panel .closebtn {
     position: relative;
-    font-size: 36px;
-    margin-right: 50px;
+    font-size: 24px;
+    margin-right: 5%;
   }
 
   .panel p {
