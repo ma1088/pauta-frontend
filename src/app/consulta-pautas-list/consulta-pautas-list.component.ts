@@ -13,9 +13,8 @@ import { AppMsg } from '../app-msg/app-msg.component';
 })
 export class ConsultaPautaList implements AfterViewInit{
     
-    @ViewChild(AppMsg) msg: AppMsg;
+    @ViewChild(AppMsg) msg: AppMsg = <AppMsg><unknown>document.getElementById("msg");
     constructor(private http: HttpClient){
-        this.msg = <AppMsg><unknown>document.getElementById("msg");
     }
     ngAfterViewInit(): void {
         this.mensagem = this.msg.mensagem;
@@ -42,10 +41,13 @@ export class ConsultaPautaList implements AfterViewInit{
     
     doSearch(){
         let tz:string = formatTz();
-        console.log(tz);
         let de = (<HTMLInputElement>document.getElementById('dtCriacaoDe')).value;
         let ate = (<HTMLInputElement>document.getElementById('dtCriacaoAte')).value;
         let headers = new HttpHeaders();
+
+        this.asPautas = [];
+        this.mensagem = 'Aguarde...';
+
         headers.append('Access-Control-Allow-Origin', '*');
         
         this.http.post<PautaPaiDto[]>(this.url + "/pauta/listar", 
@@ -58,10 +60,12 @@ export class ConsultaPautaList implements AfterViewInit{
             }
         ).subscribe(data => {
             this.asPautas = data;
-        });        
-        if (this.asPautas?.length == 0){
-            this.mensagem = 'Nenhuma pauta encontrada...';
-        }
+            if (this.asPautas.length == 0){
+                this.mensagem = 'Nenhuma pauta encontrada';
+            } else {
+                this.mensagem = '';
+            }
+        });
     }
 }
 

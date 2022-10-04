@@ -19,26 +19,24 @@
         </p>
     </div>
 </div>
-<app-msg id="msg" [mensagem]="mensagem"></app-msg>
+<app-msg id="msg" [mensagem]="mensagem" *ngIf="mensagem != ''"></app-msg>
 <div id="listPanel">
     <table>
         <caption>
-            Pautas
+            Pautas: {{ asPautas.length }}
         </caption>
-        <tr>
-            <th>Autor</th>
-            <th>Data Criação</th>
-            <th>Conteúdo</th>
-        </tr>
         <tr *ngFor="let item of asPautas">
-            <td>{{item.pauta.autor}}</td>
-            <td>{{item.pauta.dtCriacao}}</td>
-            <td>
+            <td>{{item.pauta.autor}}
+                <span class="right">
+                    {{ item.pauta.dtCriacao | date: 'dd/MM/YYYY HH:mm:ss' }}
+                </span>
                 <h4>{{item.pauta.titulo}}</h4>
                 <p>{{item.pauta.texto}}</p>
                 <p>Escolher até: {{item.pauta.qtdRespostas}}</p>
                 <ul>
-                    <li *ngfor="let resposta in item.respostas">{{resposta}}</li>
+                    <li *ngFor="let resposta of item.respostas">
+                        {{ resposta.texto }}
+                    </li>
                 </ul>
             </td>
         </tr>
